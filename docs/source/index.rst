@@ -18,6 +18,13 @@ Welcome to Platform user manual!
 .. toctree::
    :maxdepth: 3
    :hidden:
+   :caption: Login
+	
+   login/oidc
+   
+.. toctree::
+   :maxdepth: 3
+   :hidden:
    :caption: Administration
 	
    admin/handle_users
