@@ -9,7 +9,16 @@ Welcome to Platform user manual!
 .. toctree::
    :maxdepth: 3
    :hidden:
-   :caption: Administration:
+   :caption: Migration
+	
+   migration/migrate_customer
+   migration/migrate_users_and_settings
+   
+   
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :caption: Administration
 	
    admin/handle_users
 
