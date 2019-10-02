@@ -20,19 +20,4 @@ Welcome to Platform user manual!
    :hidden:
    :caption: Login
 	
-   login/oidc
-   
-.. toctree::
-   :maxdepth: 3
-   :hidden:
-   :caption: Administration
-	
-   admin/handle_users
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   login/settings
