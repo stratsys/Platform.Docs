@@ -16,8 +16,10 @@ Welcome to Platform user manual!
    
    
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :hidden:
    :caption: Login
 	
-   login/settings
+   login/username_and_password
+   login/saml2
+   
