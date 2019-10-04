@@ -22,4 +22,4 @@ Welcome to Platform user manual!
 	
    login/username_and_password
    login/saml2
-   
+   login/jit

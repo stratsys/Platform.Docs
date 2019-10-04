@@ -32,11 +32,16 @@ External IdP (explicit)
 .. image:: images/saml2ExternalIdpExplicit.png
    :width: 500
 
+.. _saml2-attribute-mappings:
+
 Attribute mappings   
 ^^^^^^^^^^^^^^^^^^
 
-TODO
-   
+- If a mapping needs to be done from  a saml ``Attribute`` to the *Username*, *First name*, *Last name* or *Email* claim, this is done here.
+
+.. note:: Attribute mapping is only used in :ref:`just-in-time user provisioning <just-in-time-user-provisioning>`.
+
+
 Metadata versions
 ^^^^^^^^^^^^^^^^^   
 
@@ -86,9 +91,11 @@ Metadata v0
 
 Configuration Azure AD
 ^^^^^^^^^^^^^^^^^^^^^^
-1. Go to https://portal.azure.com.
-   - The ``EntityID`` is https://logindev.stratsys.se/mycustomer   
+1. Go to https://portal.azure.com
+
+   - The ``EntityID`` is https://logindev.stratsys.se/mycustomer    
    - ``Assertion Consumer Service``is https://logindev.stratsys.se/mycustomer/saml2/sso
+   
 
 .. image:: images/saml2AzureAdNewAppRegistration.png
    
