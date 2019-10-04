@@ -46,13 +46,20 @@ Metadata versions
 
 .. note:: Although Stratsys provides several versions of metadata we recommend using the **latest configuration** (currently v3).
 
+
+Metadata v3
+-----------
+
+Changes from earlier version:
+-  Includes a public X509 certificate for signature validation. 
+
 Metadata v2
 -----------
 
 Changes from earlier version:
 
 - No proxy detour.
-- ``EntityId`` = ``https://login.stratsys.se/[tenantId]``
+- ``EntityID`` = ``https://login.stratsys.se/[tenantId]``
 - ``AssertionConsumerService`` = ``https://login.stratsys.se/[tenantId]/saml2/sso``
 - ``SingleLogoutService`` = ``https://login.stratsys.se/[tenantId]/saml2/slo``
 
@@ -64,7 +71,7 @@ Changes from earlier version:
 
 - Supports logout.
 - Supports multitenancy.
-- ``EntityId`` = ``https://proxy.stratsys.se/[tenantId]/SAML2``
+- ``EntityID`` = ``https://proxy.stratsys.se/[tenantId]/saml2``
 - ``AssertionConsumerService`` = ``https://proxy.stratsys.se/[tenantId]/saml2``
 - ``SingleLogoutService`` = ``https://proxy.stratsys.se/[tenantId]/saml2``
 
@@ -72,6 +79,28 @@ Metadata v0
 -----------
 
 - No support for log out.
-- Same ``EntityId`` for all tenantId's.
-- ``EntityId`` = ``https://proxy.stratsys.se/SAML2``
+- Same ``EntityID`` for all tenantId's.
+- ``EntityID`` = ``https://proxy.stratsys.se/SAML2``
 - ``AssertionConsumerService`` = ``https://proxy.stratsys.se/saml2``
+
+
+Configuration Azure AD
+^^^^^^^^^^^^^^^^^^^^^^
+1. Go to https://portal.azure.com.
+   - The ``EntityID`` is https://logindev.stratsys.se/mycustomer   
+   - ``Assertion Consumer Service``is https://logindev.stratsys.se/mycustomer/saml2/sso
+
+.. image:: images/saml2AzureAdNewAppRegistration.png
+   
+2. Register an *application*
+   - The Redirect URI should be set to the ``Assertion Consumer Service``.
+
+.. image:: images/saml2AzureAdRegisterApp.png
+   
+3. Set an *app ID*; the globally unique URI used to identify the app.
+
+.. image:: images/saml2AzureAdSetAppId.png
+
+4. (Optional) Set a *logout url*. This is required for single sign-out to work correctly.
+
+.. image:: images/saml2AzureAdSetSLO.png
