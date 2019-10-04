@@ -39,7 +39,7 @@ Attribute mappings
 
 - If a mapping needs to be done from  a saml ``Attribute`` to the *Username*, *First name*, *Last name* or *Email* claim, this is done here.
 
-.. note:: Attribute mapping is only used in :ref:`just-in-time user provisioning <just-in-time-user-provisioning>`.
+.. note:: Attribute mapping is only used in  `just-in-time user provisioning <#just-in-time-jit-user-provisioning>`_.
 
 
 Metadata versions
@@ -88,14 +88,23 @@ Metadata v0
 - ``EntityID`` = ``https://proxy.stratsys.se/SAML2``
 - ``AssertionConsumerService`` = ``https://proxy.stratsys.se/saml2``
 
+Just-in-time (JIT) user provisioning 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Use *just-in-time user provisioning* to allow users logging in for the first time using single sign-on to automatically be created in the platform.
+- The user is created according to the mapping made in `attribute mappings <#attribute-mappings>`_.
+- Enabled by clicking *User provisioning* and click the *Just-in-time user provisioning* checkbox.
+- If the *Username* claim is not mapped, it falls back on the ``Subject.NameId``.
+- *Email* falls back to *Username* if the latter is a valid e-mail address.
+
+.. note:: Except for the fallback rules above, creation of users using user-provisioning follows the same rules as when creating user in the administration or using the api. This means that *First name* and *Last name* cannot be empty.
 
 Configuration Azure AD
 ^^^^^^^^^^^^^^^^^^^^^^
 1. Go to https://portal.azure.com
 
-   - The ``EntityID`` is https://logindev.stratsys.se/mycustomer    
-   - ``Assertion Consumer Service``is https://logindev.stratsys.se/mycustomer/saml2/sso
-   
+   - The ``EntityID`` is https://logindev.stratsys.se/mycustomer
+   - ``Assertion Consumer Service`` is https://logindev.stratsys.se/mycustomer/saml2/sso   
 
 .. image:: images/saml2AzureAdNewAppRegistration.png
    
