@@ -25,7 +25,7 @@ Welcome to Platform user manual!
    login/oidc
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :hidden:
    :caption: Stratsys
 	
