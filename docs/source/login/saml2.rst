@@ -2,6 +2,7 @@ SAML2
 =====
 
 - **Enabled**. If selected, the user can login using saml2.
+- **Standard**. If selected, then saml2 is the standard login method and will be used automatically when logging in.
 - **Display name**. The text that is displayed to the users on the button for saml2.
 
 Stratsys SP
