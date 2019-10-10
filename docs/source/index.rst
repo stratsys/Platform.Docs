@@ -23,3 +23,10 @@ Welcome to Platform user manual!
    login/username_and_password
    login/saml2
    login/oidc
+   
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: Stratsys
+	
+   stratsys/change_to_historical_version
