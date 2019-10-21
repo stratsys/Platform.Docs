@@ -1,8 +1,8 @@
 Eloomi - Stratsys integration
-=====================
+=============================
 
 How does the integration work?
-^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * Eloomi e-learning is embedded within an iframe ('Stratsys external page') inside Stratsys web application. This url is manually added in `administration->menu->external pages`
 * Url: https://stratsys.eloomi.com/stratsys/login?company_code=[companycode]
 * Eloomi uses the companycode supplied in the URL above to access Stratsys IdP with the correct CompanyCode
@@ -10,7 +10,7 @@ How does the integration work?
 * If the user doesn't already exists in Eloomi, the user is created and assigned to a department in Eloomi that corresponds to the companycode in Stratsys
 
 Eloomi "backbone domain"
-^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 * "Single database-ish"
 * `Customer` somewhat comparable to customer/tenant in our new Platform. It is what it sounds like and exists at https://[customer].eloomi.com
 * Stratsys is a customer in Eloomi application
@@ -24,7 +24,7 @@ Eloomi "backbone domain"
 * Logout from Stratsys does NOT trigger logout in Eloomi
 
 Pseudo code flow
-^^^^^^^^
+^^^^^^^^^^^^^^^^
 * Attempt to fetch the user from remote stateless connection.
 * If it can’t fetch the user, it’ll redirect back to the login page
 * Attempt to find an already connected user, based on the Remote UserID (Which is a unique id from their REST API)
@@ -52,7 +52,7 @@ Pseudo code flow
 * If all in step #2 and #3 fails, it will redirect to the login page.
 
 Environments
-^^^^^^^^
+^^^^^^^^^^^^
 * Stratsys production database: eloomitest, https://www.stratsys.se/eloomitest
 * Eloomi production environment found at https://stratsys.eloomi.test
 * Eloomi has a (non public) test instance found at https://stratsys.eloomi.test
