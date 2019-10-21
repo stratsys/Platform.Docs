@@ -30,3 +30,11 @@ Welcome to Platform user manual!
    :caption: Stratsys
 	
    stratsys/change_to_historical_version
+
+.. toctree::
+   :maxdepth: 6
+   :hidden:
+   :caption: Eloomi
+	
+   eloomi/about
+   eloomi/migration
