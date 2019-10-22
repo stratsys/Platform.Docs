@@ -25,31 +25,7 @@ Eloomi "backbone domain"
 
 Pseudo code flow
 ^^^^^^^^^^^^^^^^
-* Attempt to fetch the user from remote stateless connection.
-* If it can’t fetch the user, it’ll redirect back to the login page
-* Attempt to find an already connected user, based on the Remote UserID (Which is a unique id from their REST API)
-* If successful:
-* We update the users email, in case it changed
-* We set the “last-login” to now
-* We manually log in the user found.
-* We redirect to the dashboard
-* If not successful
-* Attempt to find a user in eloomi with the remote user’s email.
-* If a user exists with that email in eloomi.
-* Create a connection to the eloomi-user and remote-user
-* Manually log in of the user
-* Redirect to the dashboard
-* If that also fails, and no users in eloomi exists with the remote user’s email.
-* Check if auto-create-users is allowed (it is for Stratsys)
-* Sanity check for the email could be deleted or similar.
-* Create a new eloomi user, with the information from the remote-user.
-* Create/Find department based on “company_code”
-* Add the user to that department
-* Activate the user
-* Create a connection between user and remote user
-* Log in the user
-* Redirect to dashboard
-* If all in step #2 and #3 fails, it will redirect to the login page.
+.. image:: images/pseudocodeflow.png
 
 Environments
 ^^^^^^^^^^^^
