@@ -30,7 +30,7 @@ Add a client secret. Remember to copy the secret after pressing Save.
    
 Appsettings.json
 ^^^^^^^^^^^^^^^^
-1.	Save a copy of the **template.appSettings.json** :download:`json <../ad_sync/doc/template.appSettings.json>` file with the name **appSettings.json**. 
+1.	Save a copy of the **template.appSettings.json** :download:`json <images/template.appSettings.json>` file with the name **appSettings.json**. 
 
 2.  Open the appSettings.json file and paste in the ClientSecret you copied in the previous step. 
 
