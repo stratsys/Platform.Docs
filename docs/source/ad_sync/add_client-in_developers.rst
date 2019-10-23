@@ -1,10 +1,10 @@
 Create client in Platform Developers
 ====================================
-For ADToStratsysSync to work you need to add a client in Platform Developers for the customers company code. You also need to create an appSettings.json file with the customers settings. This file you should send to the customer who will then follow the installation instructions and replace the default appSettings.json provided in the ADToStratsysSync zip archive with this customized settings file.
+For ADToStratsysSync to work you need to add a client in Platform Developers for the customers tenant alias. You also need to create an appSettings.json file with the customers settings. This file you should send to the customer who will then follow the installation instructions and replace the default appSettings.json provided in the ADToStratsysSync zip archive with this customized settings file.
 
 Add client
 ^^^^^^^^^^
-Go to https://developers.stratsys.se . Choose the customers company code as workspace and sign in.
+Go to https://developers.svc.stratsys.com . Choose the customers tenant alias as workspace and sign in.
 
 Add a new Client with Grant type **Client credentials**. Name it **Platform ADToStratsysSync**.
 
@@ -14,7 +14,6 @@ Add a new Client with Grant type **Client credentials**. Name it **Platform ADTo
  .. image:: images/clientSettings.png
    :width: 500
 
- 
 Add scopes
 ^^^^^^^^^^
 Add API resource scopes **Stratsys API v1 full access** and **User APIs user.readwrite**.
@@ -31,7 +30,7 @@ Add a client secret. Remember to copy the secret after pressing Save.
    
 Appsettings.json
 ^^^^^^^^^^^^^^^^
-1.	Save a copy of the **template.appSettings.json** :download:`json <doc/template.appSettings.json>` file with the name **appSettings.json**. 
+1.	Save a copy of the **template.appSettings.json** :download:`json <../ad_sync/doc/template.appSettings.json>` file with the name **appSettings.json**. 
 
 2.  Open the appSettings.json file and paste in the ClientSecret you copied in the previous step. 
 
@@ -40,7 +39,7 @@ Appsettings.json
    
 3.	Fill in the customers TenantId and CompanyCode
 
-4. Copy the ClientId and past it in the appSettings.json file.
+4. Copy the ClientId and paste it in the appSettings.json file.
 
   .. image:: images/copyClientId.png
    :width: 500
