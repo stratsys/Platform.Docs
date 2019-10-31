@@ -102,22 +102,30 @@ Just-in-time (JIT) user provisioning
 
 Configuration Azure AD
 ^^^^^^^^^^^^^^^^^^^^^^
-1. Go to https://portal.azure.com
+.. note:: We use the fictional customer **mycustomer** for illustration purposes in this example.
 
-   - The ``EntityID`` is https://logindev.stratsys.se/mycustomer
-   - ``Assertion Consumer Service`` is https://logindev.stratsys.se/mycustomer/saml2/sso   
+#. First, login to the *Platform Administration*. Then go to the settings page, and in the *Stratsys SP* tab  copy the **Metadata url**.
 
-.. image:: images/saml2AzureAdNewAppRegistration.png
+#. Paste the **Metadata url** into a browser window. In Chrome it looks like this:
    
-2. Register an *application*
+   .. image:: images/saml2Metadata.png
+    :width: 1000
+   
+   Copy the ``EntityID``, ``Assertion Consumer Service`` and the ``SingleLogoutService`` values, we will use them when setting up our *Azure AD application*.
+
+#. Go to https://portal.azure.com and register a new *application*.
+
+	.. image:: images/saml2AzureAdNewAppRegistration.png
+   
+#. Register an *application*
    - The Redirect URI should be set to the ``Assertion Consumer Service``.
 
-.. image:: images/saml2AzureAdRegisterApp.png
+	.. image:: images/saml2AzureAdRegisterApp.png
    
-3. Set an *app ID*; the globally unique URI used to identify the app.
+#. Set an *app ID*; the globally unique URI used to identify the app. The ``EntityID`` is a good candidate for this value.
 
-.. image:: images/saml2AzureAdSetAppId.png
+	.. image:: images/saml2AzureAdSetAppId.png
 
-4. (Optional) Set a *logout url*. This is required for single sign-out to work correctly.
+#. (Optional) Set a *logout url*. This is required for single sign-out to work correctly. Use the ``SingleLogoutService`` value.
 
-.. image:: images/saml2AzureAdSetSLO.png
+	.. image:: images/saml2AzureAdSetSLO.png
