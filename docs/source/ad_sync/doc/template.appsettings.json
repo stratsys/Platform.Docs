@@ -14,6 +14,6 @@
       "AuthorityUrl": "https://login.svc.stratsys.com"
     }
   },
-  "ExternalSource": "adsync",
+  "ExternalSource": "",
   "LdapSizeLimit": "10000"
 }
