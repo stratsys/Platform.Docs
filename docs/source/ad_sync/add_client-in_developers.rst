@@ -30,7 +30,10 @@ Add a client secret. Remember to copy the secret after pressing Save.
    
 Appsettings.json
 ^^^^^^^^^^^^^^^^
-1.	Save a copy of the :download:`template.appSettings.json <./doc/template.appSettings.json>` file with the name **appSettings.json**.
+1.	Save a copy of the text below in a file with the name **appSettings.json** 
+
+.. literalinclude:: ./doc/template.appSettings.json
+  :language: JSON
 
 2.  Open the appSettings.json file and paste in the ClientSecret you copied in the previous step. 
 
