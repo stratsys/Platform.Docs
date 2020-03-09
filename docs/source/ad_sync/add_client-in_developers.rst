@@ -30,7 +30,7 @@ Add a client secret. Remember to copy the secret after pressing Save.
    
 Appsettings.json
 ^^^^^^^^^^^^^^^^
-1.	Save a copy of the text below in a file with the name **appSettings.json** 
+1.	Save a copy of the text below in a file with the name **appSettings.json**.
 
 .. literalinclude:: ./doc/template.appSettings.json
   :language: JSON
@@ -40,7 +40,7 @@ Appsettings.json
  .. image:: images/appSettings.png
    :width: 500
    
-3.	Fill in the customers TenantId and CompanyCode
+3.	Fill in the customers TenantId and CompanyCode.
 
 4. Copy the ClientId and paste it in the appSettings.json file.
 
