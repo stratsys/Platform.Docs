@@ -1,0 +1,12 @@
+{
+  "TenantId": "",
+  "CompanyCode": "",
+  "Authentication": {
+    "ClientCredentials": {
+      "ClientId": "",
+      "ClientSecret": ""
+    }
+  },
+  "ExternalSource": "",
+  "LdapSizeLimit": "10000"
+}
