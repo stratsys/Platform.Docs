@@ -29,7 +29,7 @@ Add a client secret. Remember to copy the secret after pressing Save.
    :width: 500
    
 Clientsettings.json
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 1.	Save a copy of the text below in a file with the name **clientsettings.json**.
 
   TODO include file
