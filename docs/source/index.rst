@@ -38,10 +38,3 @@ Welcome to Platform user manual!
 	
    eloomi/about
    eloomi/migration
-   
-.. toctree::
-   :maxdepth: 3
-   :hidden:
-   :caption: AD sync
-	
-   ad_sync/add_client-in_developers

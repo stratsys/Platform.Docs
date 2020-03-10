@@ -23,7 +23,7 @@ Migrate
   - How many users that will be migrated.
   - The migration status for the customer.
   - The time when the migration will start. 
-- Click the *Slutför* to schedule the migration .
+- Click the *Slutför* to schedule the migration.
 
 .. image:: images/migrateUsersAndSettingsOverview.png
 
