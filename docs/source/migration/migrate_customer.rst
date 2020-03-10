@@ -21,10 +21,9 @@ Set alias
 
 Migrate 
 ^^^^^^^
-   
+
 - If everything went well, the tenant id to the newly created platform customer will be shown.
-- Click the *Gå til användar -och inställningsmigrering* to go the users and settings migration.
+- Click the *Gå till användar -och inställningsmigrering* to go to the users and settings migration.
 
 .. image:: images/migrateCustomerSuccess.png
    :width: 500
-
