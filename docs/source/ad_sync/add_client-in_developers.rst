@@ -13,6 +13,13 @@ Add a new Client with Grant type **Client credentials**. Name it **Platform ADTo
    
  .. image:: images/clientSettings.png
    :width: 500
+   
+Add claim
+^^^^^^^^^^
+Add a claim with type **externalsource** and value **ADsynk**.
+
+ .. image:: images/addClaim.png
+   :width: 500 
 
 Add scopes
 ^^^^^^^^^^
