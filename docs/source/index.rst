@@ -45,3 +45,10 @@ Welcome to Platform user manual!
    :caption: AD sync
 	
    ad_sync/add_client-in_developers
+   
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :caption: Azure AD sync
+	
+   azure_ad_sync/setup
