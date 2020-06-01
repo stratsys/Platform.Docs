@@ -4,6 +4,9 @@ Azure AD Sync
 - Azure AD Sync is an application that sits between Stratsys and Azure AD and enables a one way synchronization from Azure AD to Stratsys. 
 - It has a `swagger <https://azureadsync.svc.stratsys.com/swagger/index.html>`_! 
 
+Prerequisite
+^^^^^^^^^^^^
+- The stratsys database needs to be **migrated**. Read more about it here: :ref:`Migrate customer`.
 
 Create an organization
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -107,5 +110,5 @@ Synchronize users
 
 Resources
 ^^^^^^^^^
-- How provisioning works in Azure AD: https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
 - Troubleshoot: https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-config-problem
+- How provisioning works in Azure AD: https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups

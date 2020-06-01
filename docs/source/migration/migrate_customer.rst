@@ -1,3 +1,5 @@
+.. _Migrate customer:
+
 Migrate customer
 ================
 
