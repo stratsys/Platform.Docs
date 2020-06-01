@@ -1,5 +1,5 @@
-Azure AD Sync
-==============
+Setup
+=====
 
 - Azure AD Sync is an application that sits between Stratsys and Azure AD and enables a one way synchronization from Azure AD to Stratsys. 
 - It has a `swagger <https://azureadsync.svc.stratsys.com/swagger/index.html>`_! 
@@ -110,5 +110,6 @@ Synchronize users
 
 Resources
 ^^^^^^^^^
+- Check the logs: https://logging.stratsys.net/app/kibana#/discover/d6165770-d463-11e9-a9ab-1940d6e09d7a 
 - Troubleshoot: https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-config-problem
 - How provisioning works in Azure AD: https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
