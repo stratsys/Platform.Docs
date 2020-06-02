@@ -32,7 +32,7 @@ Generate a key
 ^^^^^^^^^^^^^^
 
 1. Go to `Platform Administration <https://admin.svc.stratsys.com>`_ and click **User Sync** > **Settings** > **Activate directory synchronization** **(3)**.
-2. Under *Keys*, write the *Company code* and click **Generate key** **(4)**.
+2. Under *Keys*, write the *Company code* and click **Generate token** **(4)**.
 3. Copy the *key* **(5)** and store it in a safe place, since you won't be able to retrieve it later.
 4. Copy the *Azure Ad Sync Url* **(6)**  , you will need it later.
 
@@ -70,19 +70,19 @@ Synhronize groups
 1. Now it's time to select *groups* and *users* for synchronization. 
 2. Because of a limitation in the system, in order to be able to configure *groups*, we need to **synchronize groups separately**.
 3. We now have two choices: either we synchronize **empty groups**, or we **disable user synchronization**.
-4. To **disable user synchronization**, go to **Mappings (5)**  (see *figure 3*), click **Provision Azure Active Directory Users** and uncheck all user actions (see figure 4). Then click **Save**.
+4. To **disable user synchronization**, go to **Mappings (5)**  (see *figure 5*), click **Provision Azure Active Directory Users** and uncheck all user actions (see *figure 6*). Then click **Save**.
 
 .. figure:: images/UncheckUserActions.png
 	:width: 500
     
-	Figure 4. Uncheck user actions.
+	Figure 6. Uncheck user actions.
 	
 5. Now you're ready to synchronize your groups. Click **Provisioning** > **Start provisioning**. The synchronization will take a couple of minutes.
-6. When the first cycle has finished you can see the outcome on the same page. *Figure 6* is an example of a not so successful run, since it has 19 errors. Check the logs under **(1)** and **(2)**.
+6. When the first cycle has finished you can see the outcome on the same page. *Figure 7* is an example of a not so successful run, since it has 19 errors. Check the logs under **(1)** and **(2)**.
 
 .. figure:: images/AzureInitialRun.png
 	
-		Figure 6. Azure initial cycle.
+		Figure 7. Azure initial cycle.
 
 
 Configure groups and departments
@@ -96,7 +96,7 @@ Configure groups and departments
 .. figure:: images/PlatformGroupAndDepartmentConfiguration.png
 	:width: 500
     
-	Figure 7. Platform group and department configuration.
+	Figure 8. Platform group and department configuration.
 	
 5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. 
 
