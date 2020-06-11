@@ -22,6 +22,7 @@ Create an organization
 
 3. Next, activate synchronization: **Administration** > **Users** > **Standard membership for new users** > check **Enable automatic user creation from the platform.**.
 4. You also need to select a *main membership*. This is only needed for Stratsys, not Azure AD Sync. However, make sure you select a suitable *group*.
+5. Select a standard department. This will be used if the user does not have a department in Azure AD.
 
 
 .. figure:: images/StratsysEnableUserCreation.png
@@ -57,6 +58,7 @@ Create an Azure AD application
 5. Paste the *Azure AD Sync url* **(1)** previously copied from the platform administration. 
 6. Paste the *key* **(2)** previously copied from the platform administration.
 7. Make sure the connection is correct by clicking **Test connection** **(3)**. Azure should indicate that everything was fine **(4)**.
+8. Press Save at the top of the page.
 
 .. figure:: images/AddTokenToAAD.png
     
@@ -98,15 +100,16 @@ Configure groups and departments
     
 	Figure 8. Platform group and department configuration.
 	
-5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. 
+5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. This should match the standard department set in step 5 in Create an organization <#create_an_organization>`_
 
 Synchronize users
 ^^^^^^^^^^^^^^^^^
 
 1. Go back to https://portal.azure.com
-2. Now it's time to sync the users. Re-enable user synchronization previously disabled in `step 4 in Synhronize groups <#synhronize-groups>`_.
-3. Click **Restart provisioning**.
-4. If no error was reported, you're done!
+2. Press Edit provisioning.
+3. Now it's time to sync the users. Re-enable user synchronization previously disabled in `step 4 in Synhronize groups <#synhronize-groups>`_.
+4. Click **Restart provisioning**.
+5. If no error was reported, you're done!
 
 Resources
 ^^^^^^^^^
