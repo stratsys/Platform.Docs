@@ -65,6 +65,7 @@ Create an Azure AD application
 	Figure 5. Azure AD application configuration.
 
 .. warning:: Make sure you have the **correct url** for the **correct environment** (test/production).
+8. Press **Save** at the top of the page.
 
 Synhronize groups
 ^^^^^^^^^^^^^^^^^
@@ -106,7 +107,7 @@ Synchronize users
 ^^^^^^^^^^^^^^^^^
 
 1. Go back to https://portal.azure.com
-2. Press Edit provisioning.
+2. Press **Edit provisioning**.
 3. Now it's time to sync the users. Re-enable user synchronization previously disabled in `step 4 in Synhronize groups <#synhronize-groups>`_.
 4. Click **Restart provisioning**.
 5. If no error was reported, you're done!
