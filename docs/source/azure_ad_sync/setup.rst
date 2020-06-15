@@ -8,6 +8,9 @@ Prerequisite
 ^^^^^^^^^^^^
 - The stratsys database needs to be **migrated**. Read more about it here: :ref:`Migrate customer`.
 
+.. note:: Make sure you have the *correct urls* for the *correct environment*. Platform urls **in prodution** have the format http://[application].svc.stratsys.com. **Test** urls looks like this https://[application].svc.test.stratsys.net .
+
+
 Create an organization
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -21,8 +24,8 @@ Create an organization
 .. tip:: In this example the *organization tree* mirrors the *Azure Demo Active Directory*, which I will use throughout the documentation. Create your own demo `here <https://cdx.transform.microsoft.com/my-tenants>`_.
 
 3. Next, activate synchronization: **Administration** > **Users** > **Standard membership for new users** > check **Enable automatic user creation from the platform.**.
-4. You also need to select a *main membership*. This is only needed for Stratsys, not Azure AD Sync. However, make sure you select a suitable *group*.
-5. Select a standard department. This will be used if the user does not have a department in Azure AD.
+4. You also need to select a *main membership*.   for Stratsys, not Azure AD Sync. However, make sure you select a suitable *group*.
+5. Select a standard department. This should be the same department as in the Administration, and will be used as a *fallback*. Explained `here <#configure-groups-and-departments>`_.
 
 
 .. figure:: images/StratsysEnableUserCreation.png
@@ -64,7 +67,6 @@ Create an Azure AD application
     
 	Figure 5. Azure AD application configuration.
 
-.. warning:: Make sure you have the **correct url** for the **correct environment** (test/production).
 8. Press **Save** at the top of the page.
 
 Synhronize groups
@@ -101,7 +103,7 @@ Configure groups and departments
     
 	Figure 8. Platform group and department configuration.
 	
-5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. This should match the standard department set in step 5 in Create an organization <#create_an_organization>`_
+5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. This should match the standard department set in step 5 in `Create an organization <#create-an-organization>`_
 
 Synchronize users
 ^^^^^^^^^^^^^^^^^
