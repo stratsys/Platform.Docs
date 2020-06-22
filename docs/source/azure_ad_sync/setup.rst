@@ -6,7 +6,10 @@ Setup
 
 Prerequisite
 ^^^^^^^^^^^^
-- The stratsys database needs to be **migrated**. Read more about it here: :ref:`Migrate customer`.
+- In Stratsys: 
+
+   - The database needs to be **migrated**. Read more about it here: :ref:`Migrate customer`.
+   - An **external system without external codes for departments** need to exist. The name **must be** ADSynk (see `Authentication client <#authentication-client>`_ ). The system currently does not support external codes for departments.
 - The Azure AD license and groups meets the `requirements <https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal>`_ (see first *Note* section).
 
 .. note:: Make sure you have the *correct urls* for the *correct environment*. Platform urls **in prodution** have the format http://[application].svc.stratsys.com. **Test** urls looks like this https://[application].svc.test.stratsys.net .
@@ -108,6 +111,8 @@ Configure groups and departments
 
 Synchronize users
 ^^^^^^^^^^^^^^^^^
+
+.. note:: If you want to sync users that are already created in the platform, the new and the old user must have matching **user name**. Otherwise, a new user will be created.
 
 1. Go back to https://portal.azure.com
 2. Press **Edit provisioning**.
