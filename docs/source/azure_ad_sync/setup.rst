@@ -115,6 +115,14 @@ Synchronize users
 4. Click **Restart provisioning**.
 5. If no error was reported, you're done!
 
+Client
+^^^^^^
+
+1. The **client** that is used for authentication is **platform-azureadsync.**
+2. It has the **azureadsync.readwrite**-scope.
+3. It also has an **external source**: ADsynk. NB! The external source in Stratsys needs to be named **exactly this** for everything to work. 
+
+
 Resources
 ^^^^^^^^^
 - Check the logs: https://logging.stratsys.net/app/kibana#/discover/d6165770-d463-11e9-a9ab-1940d6e09d7a 
