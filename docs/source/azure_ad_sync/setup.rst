@@ -99,8 +99,8 @@ Configure groups and departments
 
 1. If everything went fine, return to the **Platform Administration** > **User Sync** > **Settings**.
 2. You will now see your synchronized groups (provided you have selected a **Standard department**).
-3. The groups are listed as a **prioritized list**. Drag and drop a group to set its prioritity higher or lower. When a user is assigned to a group, the list determines if this group should be set as *main membership* or *extra membership* for this user.
-4. Each group also has a *department* mapped to it. This acts as a fallback when a user is assigned a unexisting department (it might have been misspelled, or simply not created in Stratsys).
+3. The groups are listed as a **prioritized list**. Drag and drop a group to set its prioritity higher or lower. When a user is assigned to a group, the list determines if this group should be set as *main membership* or *extra membership* for this user. The user will get a new *membership* consisting of the new *group* and the same *department* as the *main membership*.
+4. Each group also has a *department* mapped to it. This acts as a fallback when a user is assigned an unexisting department (it might have been misspelled, or simply not created in Stratsys). So if the group is the *main membership* for the user, its configured *department* is used.  
 	
 .. figure:: images/PlatformGroupAndDepartmentConfiguration.png
 	:width: 500
