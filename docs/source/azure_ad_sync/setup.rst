@@ -133,7 +133,6 @@ Client
 
 1. The **client** that is used for authentication is **platform-azureadsync.**
 2. It has the **azureadsync.readwrite**-scope.
-3. It also has an **external source**: ADsynk. NB! The external source in Stratsys needs to be named **exactly this** for everything to work. 
 
 
 Resources
