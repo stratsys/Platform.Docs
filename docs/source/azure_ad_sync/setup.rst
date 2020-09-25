@@ -18,22 +18,15 @@ Create an organization
 ^^^^^^^^^^^^^^^^^^^^^^
 
 1. Start by logging in to https://stratsys/*companyCode* > **Administration** > **Organization** and create your *organization tree*.
-2. This *organization tree* should mirror your Azure AD department structure. 
+2. This *organization tree* should mirror your Azure AD department structure. In case you want flexibility regarding their names, check out the `Mappings <#mappings>`_ section.
 
 .. figure:: images/StratsysOrganization.png
+	:name: stratsys-organization
 		
-	Figure 1. Stratsys organization.
+	Stratsys organization tree.
 
 .. tip:: In this example the *organization tree* mirrors the *Azure Demo Active Directory*, which I will use throughout the documentation. Create your own demo `here <https://cdx.transform.microsoft.com/my-tenants>`_.
 
-3. Next, activate synchronization: **Administration** > **Users** > **Standard membership for new users** > check **Enable automatic user creation from the platform.**.
-4. You also need to select a *main membership*.   for Stratsys, not Azure AD Sync. However, make sure you select a suitable *group*.
-5. Select a standard department. This should be the same department as in the Administration, and will be used as a *fallback*. Explained `here <#configure-groups-and-departments>`_.
-
-
-.. figure:: images/StratsysEnableUserCreation.png
-			
-	Figure 2. Enable automatic user creation from the platform.
 
 Generate a key 
 ^^^^^^^^^^^^^^
@@ -46,18 +39,10 @@ Generate a key
 .. figure:: images/GenerateToken.png
 	:width: 750
 		
-	Figure 3. Generate token.
+	Generate token.
 
 
-Connect to an external source 
------------------------------
-- Select an *external source* to be used for synchronization.
-
-.. figure:: images/SetExternalSource.png
-	:width: 750
-		
-	Figure 3b. Connect to an external source.
-		
+	
 Create an Azure AD application
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -67,7 +52,7 @@ Create an Azure AD application
 
 .. figure:: images/StartProvisioningAAD.png
 	
-	Figure 4. New application in Azure AD.
+	New application in Azure AD.
 	
 4. Pick **Provisioning Mode Automatic** 
 5. Paste the *Azure AD Sync url* **(1)** previously copied from the platform administration. 
@@ -77,7 +62,7 @@ Create an Azure AD application
 
 .. figure:: images/AddTokenToAAD.png
     
-	Figure 5. Azure AD application configuration.
+	Azure AD application configuration.
 
 8. Press **Save** at the top of the page.
 
@@ -87,19 +72,21 @@ Synhronize groups
 1. Now it's time to select *groups* and *users* for synchronization. 
 2. Because of a limitation in the system, in order to be able to configure *groups*, we need to **synchronize groups separately**.
 3. We now have two choices: either we synchronize **empty groups**, or we **disable user synchronization**.
-4. To **disable user synchronization**, go to **Mappings (5)**  (see *figure 5*), click **Provision Azure Active Directory Users** and uncheck all user actions (see *figure 6*). Then click **Save**.
+4. To **disable user synchronization**, go to **Mappings**, click **Provision Azure Active Directory Users** and uncheck all user actions (see :numref:`uncheck-user-actions`). Then click **Save**.
 
 .. figure:: images/UncheckUserActions.png
 	:width: 500
+	:name: uncheck-user-actions
     
-	Figure 6. Uncheck user actions.
+	Uncheck user actions.
 	
 5. Now you're ready to synchronize your groups. Click **Provisioning** > **Start provisioning**. The synchronization will take a couple of minutes.
-6. When the first cycle has finished you can see the outcome on the same page. *Figure 7* is an example of a not so successful run, since it has 19 errors. Check the logs under **(1)** and **(2)**.
+6. When the first cycle has finished you can see the outcome on the same page. :numref:`azure-initial-run` is an example of a not so successful run, since it has 19 errors. Check the logs under **(1)** and **(2)**.
 
 .. figure:: images/AzureInitialRun.png
+	:name: azure-initial-run
 	
-		Figure 7. Azure initial cycle.
+	Azure initial cycle.
 
 
 Configure groups and departments
@@ -113,20 +100,25 @@ Configure groups and departments
 .. figure:: images/PlatformGroupAndDepartmentConfiguration.png
 	:width: 500
     
-	Figure 8. Platform group and department configuration.
+	Platform group and department configuration.
 	
 5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. This should match the standard department set in step 5 in `Create an organization <#create-an-organization>`_
 
 Synchronize users
 ^^^^^^^^^^^^^^^^^
 
-.. note:: If you want to sync users that are already created in the platform, the new and the old user must have matching **user name**. Otherwise, a new user will be created.
+.. note:: If you want to sync users that are already created in the platform, the new and the old user must have matching **user name** or **e-mail**. Otherwise, a new user will be created.
 
 1. Go back to https://portal.azure.com
 2. Press **Edit provisioning**.
 3. Now it's time to sync the users. Re-enable user synchronization previously disabled in `step 4 in Synhronize groups <#synhronize-groups>`_.
 4. Click **Restart provisioning**.
 5. If no error was reported, you're done!
+
+
+Mappings
+^^^^^^^^
+Work in progress.
 
 Client
 ^^^^^^
