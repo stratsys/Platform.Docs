@@ -18,7 +18,7 @@ Create an organization
 ^^^^^^^^^^^^^^^^^^^^^^
 
 1. Start by logging in to https://stratsys/*companyCode* > **Administration** > **Organization** and create your *organization tree*.
-2. This *organization tree* should mirror your Azure AD department structure. In case you want flexibility regarding their names, check out the `Mappings <#mappings>`_ section.
+2. This *organization tree* should mirror your Azure AD department structure. In case you want flexibility regarding their names, check out the `Group and department mapping <#mapping>`_ section.
 
 .. figure:: images/StratsysOrganization.png
 	:name: stratsys-organization
@@ -115,10 +115,11 @@ Synchronize users
 4. Click **Restart provisioning**.
 5. If no error was reported, you're done!
 
+Mapping
+^^^^^^^
 
-Mappings
-^^^^^^^^
-Work in progress.
+Work in progress. A ui will be developed for this. In the meantime, use `swagger <https://azureadsync.svc.stratsys.com/swagger/index.html>`_
+
 
 Client
 ^^^^^^
