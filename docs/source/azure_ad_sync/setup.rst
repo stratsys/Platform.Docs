@@ -13,12 +13,13 @@ Prerequisite
 
 .. note:: Make sure you have the *correct urls* for the *correct environment*. Platform urls **in prodution** have the format http://[application].svc.stratsys.com. **Test** urls looks like this https://[application].svc.test.stratsys.net .
 
+.. note:: If you want to sync users that are already created in the platform, the new and the old user must have matching **user name** or **e-mail**. Otherwise, a new user will be created.
 
 Create an organization
 ^^^^^^^^^^^^^^^^^^^^^^
 
 1. Start by logging in to https://stratsys/*companyCode* > **Administration** > **Organization** and create your *organization tree*.
-2. This *organization tree* should mirror your Azure AD department structure. In case you want flexibility regarding their names, check out the `Group and department mapping <#mapping>`_ section.
+2. This *organization tree* should mirror your Azure AD department structure. All departments in Azure AD needs to have a corresponding *alias* in Azure AD Sync. See `Group and department mapping <#mapping>`_ section.
 
 .. figure:: images/StratsysOrganization.png
 	:name: stratsys-organization
@@ -27,22 +28,57 @@ Create an organization
 
 .. tip:: In this example the *organization tree* mirrors the *Azure Demo Active Directory*, which I will use throughout the documentation. Create your own demo `here <https://cdx.transform.microsoft.com/my-tenants>`_.
 
-
 Generate a key 
 ^^^^^^^^^^^^^^
 
-1. Go to `Platform Administration <https://admin.svc.stratsys.com>`_ and click **User Sync** > **Settings** > **Activate directory synchronization** **(3)**.
-2. Under *Keys*, write the *Company code* and click **Generate token** **(4)**.
-3. Copy the *key* **(5)** and store it in a safe place, since you won't be able to retrieve it later.
-4. Copy the *Azure Ad Sync Url* **(6)**  , you will need it later.
+1. Go to `Platform Administration <https://admin.svc.stratsys.com>`_ and click **User Sync** > **Settings** > **Activate directory synchronization**.
+2. Under *Keys*, write the *Company code* and click **Generate token**.
+3. Copy the *key* and store it in a safe place, since you won't be able to retrieve it later.
+4. Copy the *Azure Ad Sync Url*  , you will need it later.
 
 .. figure:: images/GenerateToken.png
 	:width: 750
 		
 	Generate token.
 
+Create and configure groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create
+------
+
+1. The groups are created in Stratsys and configured in Azure AD Sync.
+2. After the groups are created in Stratsys, go to **Groups** and click **Show non-external groups**.
+3. There, all groups from Stratsys are listed. Select the groups you want to use and click *Set to external*.
+
+.. figure:: images/AddGroupsFromStratsys.png
+	:width: 750
+		
+	Add group from Stratsys. 
+
+4. The groups are listed as a **prioritized list**. When a user is assigned to a group, the priority determines if this group should be set as *main membership* or *extra membership* for this user. The user will get a new *membership* consisting of the new *group* and the same *department* as the *main membership*.
+5. Each group also has a *department* mapped to it. This acts as a fallback when a user is assigned an unexisting department (it might have been misspelled, or simply not created in Stratsys). So if the group is the *main membership* for the user, its configured *department* is used.  
 
 	
+Configure
+---------
+	
+1. Click on a group to see and edit its configuration.
+2. All groups in Azure AD needs to have a corresponding *alias* in Azure AD Sync. If a group doesn't have an *alias*, the provisioning of this group will fail.	
+3. The *alias* is the name of the corresponding Azure AD group. A group can have several aliases and hence map to several Azure AD groups.
+4. An *alias* must be unique.
+
+.. figure:: images/EditGroup.png
+	:width: 750
+		
+	Edit group.
+	
+Configure departments	
+^^^^^^^^^^^^^^^^^^^^^
+
+1. Departments also needs to have a corresponding *alias*, just as groups. 
+2. Departments does not, however, need to be explicitly selected for provisioning (set as external). Instead they are automatically imported from Stratsys.
+
+
 Create an Azure AD application
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -66,21 +102,10 @@ Create an Azure AD application
 
 8. Press **Save** at the top of the page.
 
-Synhronize groups
-^^^^^^^^^^^^^^^^^
+Synhronize users and groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Now it's time to select *groups* and *users* for synchronization. 
-2. Because of a limitation in the system, in order to be able to configure *groups*, we need to **synchronize groups separately**.
-3. We now have two choices: either we synchronize **empty groups**, or we **disable user synchronization**.
-4. To **disable user synchronization**, go to **Mappings**, click **Provision Azure Active Directory Users** and uncheck all user actions (see :numref:`uncheck-user-actions`). Then click **Save**.
-
-.. figure:: images/UncheckUserActions.png
-	:width: 500
-	:name: uncheck-user-actions
-    
-	Uncheck user actions.
-	
-5. Now you're ready to synchronize your groups. Click **Provisioning** > **Start provisioning**. The synchronization will take a couple of minutes.
+1. Click **Provisioning** > **Start provisioning**. The synchronization will take a couple of minutes.
 6. When the first cycle has finished you can see the outcome on the same page. :numref:`azure-initial-run` is an example of a not so successful run, since it has 19 errors. Check the logs under **(1)** and **(2)**.
 
 .. figure:: images/AzureInitialRun.png
@@ -89,44 +114,18 @@ Synhronize groups
 	Azure initial cycle.
 
 
-Configure groups and departments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. If everything went fine, return to the **Platform Administration** > **User Sync** > **Settings**.
-2. You will now see your synchronized groups (provided you have selected a **Standard department**).
-3. The groups are listed as a **prioritized list**. Drag and drop a group to set its prioritity higher or lower. When a user is assigned to a group, the list determines if this group should be set as *main membership* or *extra membership* for this user. The user will get a new *membership* consisting of the new *group* and the same *department* as the *main membership*.
-4. Each group also has a *department* mapped to it. This acts as a fallback when a user is assigned an unexisting department (it might have been misspelled, or simply not created in Stratsys). So if the group is the *main membership* for the user, its configured *department* is used.  
+Synchronization done
+^^^^^^^^^^^^^^^^^^^^
+1. If no error was reported, you're done!
+2. Return to the **Platform Administration** > **User Sync** > **Groups**.
+3. You will now see your *synchronized groups*. They are marked as *provisioned* and has a *Modified at* and *Created at*.
 	
-.. figure:: images/PlatformGroupAndDepartmentConfiguration.png
+.. figure:: images/SynchronizedGroups.png
 	:width: 500
     
-	Platform group and department configuration.
+	Synchronized groups.
 	
-5. The *standard department* is an additional fallback for the department that kicks in if the *main membership group has not been assigned a department*. This should match the standard department set in step 5 in `Create an organization <#create-an-organization>`_
-
-Synchronize users
-^^^^^^^^^^^^^^^^^
-
-.. note:: If you want to sync users that are already created in the platform, the new and the old user must have matching **user name** or **e-mail**. Otherwise, a new user will be created.
-
-1. Go back to https://portal.azure.com
-2. Press **Edit provisioning**.
-3. Now it's time to sync the users. Re-enable user synchronization previously disabled in `step 4 in Synhronize groups <#synhronize-groups>`_.
-4. Click **Restart provisioning**.
-5. If no error was reported, you're done!
-
-Mapping
-^^^^^^^
-
-Work in progress. A ui will be developed for this. In the meantime, use `swagger <https://azureadsync.svc.stratsys.com/swagger/index.html>`_
-
-
-Client
-^^^^^^
-
-1. The **client** that is used for authentication is **platform-azureadsync.**
-2. It has the **azureadsync.readwrite**-scope.
-
+4. Go to **Users** and make sure all users has been synchronized.
 
 Resources
 ^^^^^^^^^
