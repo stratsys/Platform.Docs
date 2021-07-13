@@ -52,3 +52,4 @@ Welcome to Platform user manual!
    :caption: Azure AD sync
 	
    azure_ad_sync/setup
+   azure_ad_sync/supported_endpoints
